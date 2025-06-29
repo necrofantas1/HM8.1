@@ -146,6 +146,7 @@ while (isValid)
         Console.WriteLine("Будь ласка, введіть коректне число.");
     }
 
+    // Запитуємо користувача, чи хоче він продовжити
     Console.WriteLine("бажаєте продовжити? (Y/N): ");
     string userInput = Console.ReadLine()?.Trim().ToUpperInvariant();
 
