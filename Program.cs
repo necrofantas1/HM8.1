@@ -1,6 +1,6 @@
 ﻿#region Створити масив із 10 елементів типу int. Присвоїти їм випадкові значення від -10 до 10, використовуючи клас Random
 Console.WriteLine("Масив з 10 елементів типу int з випадковими значеннями від -10 до 10");
-int[] numbers = new int[10]; 
+int[] numbers = new int[10];
 
 Random random = new Random();
 
@@ -121,4 +121,46 @@ for (int i = 0; i < rows; i++)
 Console.WriteLine($"\nМинимальное значение: {minValue} (столбец {minCol+1}, строка {minRow+1})");
 Console.WriteLine($"Максимальное значение: {maxValue} (столбец {maxCol+1}, строка {maxRow+1})");
 
+#endregion
+
+#region За допомогою enum створити програму,
+bool isValid = true;
+
+Console.WriteLine();
+Console.WriteLine("Використання enum для визначення днів тижня:");
+
+while (isValid)
+{
+    Console.WriteLine("Будь ласка, введіть кількість днів: ");
+
+    if (int.TryParse(Console.ReadLine(), out int daysCount))
+    {
+        int currentDay = (int)DayOfWeek.Monday; // Починаємо з понеділка
+        int resultDay = (currentDay + daysCount) % 7;
+        DayOfWeek result = (DayOfWeek)resultDay;
+
+        Console.WriteLine($"День тижня через {daysCount} днів буде: {result}");
+    }
+    else
+    {
+        Console.WriteLine("Будь ласка, введіть коректне число.");
+    }
+
+    Console.WriteLine("бажаєте продовжити? (Y/N): ");
+    string userInput = Console.ReadLine()?.Trim().ToUpperInvariant();
+
+    if (userInput == "Y")
+    {
+        isValid = true;
+    }
+    else if (userInput == "N")
+    {
+        isValid = false;
+        Console.WriteLine("Дякуємо за використання програми!");
+    }
+    else
+    {
+        Console.WriteLine("Невірний ввід, спробуйте ще раз.");
+    }
+}
 #endregion
