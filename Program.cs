@@ -1,7 +1,5 @@
 ﻿#region Створити масив із 10 елементів типу int. Присвоїти їм випадкові значення від -10 до 10, використовуючи клас Random
-
-using System.Runtime.ExceptionServices;
-
+Console.WriteLine("Масив з 10 елементів типу int з випадковими значеннями від -10 до 10");
 int[] numbers = new int[10]; 
 
 Random random = new Random();
@@ -19,9 +17,8 @@ for (int i = 0; i< numbers.Length; i +=2)
 #endregion
 
 #region Визначити, чи вірно, що сума елементів масиву з пункту 1 є невід'ємне число.
-
 int sum = 0;
-foreach (int number in numbers)
+foreach (int number in numbers) 
 {
     sum += number;
 }
@@ -39,7 +36,7 @@ else
 
 #region Створити та заповнити двовимірний масив розміру 9х9 з результатами таблиці множення
 Console.WriteLine();
-
+Console.WriteLine("Таблиця множення 9х9:");
 
 const int cellSize = 9; // Розмір таблиці множення
 const int cellWidth = 3; // Ширина кожної комірки таблиці
@@ -62,5 +59,66 @@ for (int i = 0; i < cellSize; i++)
     }
     Console.WriteLine();
 }
+
+#endregion
+
+#region Створити двовимірний масив 5х5. Заповнити його будь-якими числами.
+Console.WriteLine();    
+Console.WriteLine("Двовимірний масив 5х5:");
+
+const int rows = 5;
+const int cols = 5;
+const int cellWidth2 = 4;
+
+int[,] array2D = new int[rows, cols];
+
+random = new Random();
+
+// Заповнюємо масив випадковими числами від 0 до 999
+for (int i = 0; i < rows; i++)
+{
+    for (int j = 0; j < cols; j++)
+    {
+        array2D[i, j] = random.Next(0, 999); 
+    }
+}
+
+
+for (int i = 0; i < rows; i++)
+{
+    for (int j = 0; j < cols; j++)
+    {
+        Console.Write($"{array2D[i, j],cellWidth2} "); 
+    }
+
+// пошук мінімального та максимального значення в масиві
+    Console.WriteLine();
+}
+int minValue = array2D[0, 0];
+int maxValue = array2D[0, 0];
+int minRow = 0, minCol = 0;
+int maxRow = 0, maxCol = 0;
+
+for (int i = 0; i < rows; i++)
+{
+    for (int j = 0; j < cols; j++)
+    {
+        if (array2D[i, j] < minValue)
+        {
+            minValue = array2D[i, j];
+            minRow = i;  
+            minCol = j;   
+        }
+        if (array2D[i, j] > maxValue)
+        {
+            maxValue = array2D[i, j];
+            maxRow = i;  
+            maxCol = j;   
+        }
+    }
+}
+
+Console.WriteLine($"\nМинимальное значение: {minValue} (столбец {minCol+1}, строка {minRow+1})");
+Console.WriteLine($"Максимальное значение: {maxValue} (столбец {maxCol+1}, строка {maxRow+1})");
 
 #endregion
