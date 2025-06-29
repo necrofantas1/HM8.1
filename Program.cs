@@ -39,7 +39,7 @@ Console.WriteLine();
 Console.WriteLine("Таблиця множення 9х9:");
 
 const int cellSize = 9; // Розмір таблиці множення
-const int cellWidth = 3; // Ширина кожної комірки таблиці
+const int cellWidth = 4; // Ширина кожної комірки таблиці
 
 int[,] multiplicationTable = new int[cellSize, cellSize];
 
